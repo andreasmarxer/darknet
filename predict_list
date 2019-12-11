@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo Hello, World!
+#mkdir output-predictions-1
+#mkdir output-predictions-2
+#mkdir output-predictions-3
+mkdir output-predictions
+
+#for file in /cluster/home/marxera/darknet/data/val-100ad/*.jpg
+for file in /cluster/home/marxera/darknet/data/asl-original5/*.jpg
+do
+	filename=$(basename $file)
+	filename_woend="${filename%.*}"
+	echo filename: $filename
+	echo filename wo ending: $filename_woend
+	echo file: $file
+
+	## case 3:
+	# 416x416 Window 100ad
+	#./darknet detector test data/obj-100.data cfg/yolov3-obj.cfg backup/yolov3-obj_ad_4000.weights $file >output-predictions-3/$filename_woend.txt
+	#mv prediction_detector.jpg output-predictions-3/$filename
+
+
+	##
+	./darknet detector test data/obj-100.data cfg/yolov3-obj.cfg backup/yolov3-obj_100adasl_b_4000.weights -ext_output $file >output-predictions/$filename_woend.txt
+	mv prediction_detector.jpg output-predictions/$filename
+
+done
