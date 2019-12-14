@@ -1,0 +1,5 @@
+classes= 1
+train  = data/train_window100ad20asl.txt
+valid  = data/validation_window100ad20asl.txt
+names = data/obj.names
+backup = backup/
