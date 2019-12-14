@@ -3,6 +3,7 @@
 number_of_build_workers=8
 bypass_vcpkg=true
 force_cpp_build=false
+additional_defines="-DBUILD_SHARED_LIBS=OFF"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   vcpkg_triplet="x64-osx"
